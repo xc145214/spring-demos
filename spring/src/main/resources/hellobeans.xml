@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="hello" class="com.xc.bean.Hello">
+        <property name="message" value="helloworld"/>
+    </bean>
+
+
+    <!--singleton-->
+    <bean id="hello1" class="com.xc.bean.Hello" scope="singleton"></bean>
+
+
+    <!--prototype-->
+    <bean id="hello2" class="com.xc.bean.Hello" scope="prototype"></bean>
+
+
+    <!--生命周期-->
+    <bean id="hello3" class="com.xc.bean.Hello" init-method="init" destroy-method="destroy">
+        <property name="message" value="Hello World!"/>
+    </bean>
+
+
+    <!--后置处理器-->
+    <bean class="com.xc.bean.InitHello"></bean>
+
+
+    <!--bean的继承与模板-->
+    <bean id="helloWorld" class="com.xc.bean.HelloWorld">
+        <property name="message1" value="Hello World!"/>
+        <property name="message2" value="Hello Second World!"/>
+    </bean>
+
+    <bean id="helloIndia" class="com.xc.bean.HelloIndia" parent="helloWorld">
+        <property name="message1" value="Hello India!"/>
+        <property name="message3" value="Namaste India!"/>
+    </bean>
+
+    <!--bean的继承与模板-->
+    <!--抽象bean-->
+    <bean id="beanTeamplate" abstract="true">
+        <property name="message1" value="Hello World!"/>
+        <property name="message2" value="Hello Second World!"/>
+        <property name="message3" value="Namaste India!"/>
+    </bean>
+
+    <bean id="indiaBean" class="com.xc.bean.HelloIndia" parent="beanTeamplate">
+        <property name="message1" value="Hello India!"/>
+        <property name="message3" value="Namaste India!"/>
+    </bean>
+
+
+    <!--依赖注入-->
+    <!--构造方法注入-->
+    <bean id="spellChecker" class="com.xc.bean.SpellChecker"></bean>
+    <bean id="textEditor" class="com.xc.bean.TextEditor">
+        <constructor-arg ref="spellChecker"/>
+    </bean>
+
+
+</beans>

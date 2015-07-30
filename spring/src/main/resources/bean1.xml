@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--常规写法-->
+    <!-- Definition for textEditor bean -->
+    <bean id="textEditor" class="com.xc.bean.TextEditor1">
+        <property name="spellChecker" ref="spellChecker"/>
+        <property name="name" value="Generic Text Editor"/>
+    </bean>
+
+    <!-- Definition for spellChecker bean -->
+    <bean id="spellChecker" class="com.xc.bean.SpellChecker">
+    </bean>
+
+    <!--自动注入 byName-->
+    <bean id="textEditor1" class="com.xc.bean.TextEditor1" autowire="byName">
+        <property name="name" value="Generic Text Editor"/>
+    </bean>
+
+    <!--自动注入byType-->
+    <bean id="textEditor2" class="com.xc.bean.TextEditor1" autowire="byType">
+        <property name="name" value="Generic Text Editor"/>
+    </bean>
+
+
+    <!--构造函数自动装配-->
+
+    <bean id="te1" class="com.xc.bean.TextEditor2" >
+        <constructor-arg  ref="spellChecker" />
+        <constructor-arg  value="Generic Text Editor"/>
+    </bean>
+
+    <bean id="te2" class="com.xc.bean.TextEditor2" autowire="constructor">
+        <constructor-arg  value="Generic Text Editor"/>
+    </bean>
+
+</beans>
