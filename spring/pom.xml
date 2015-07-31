@@ -25,6 +25,24 @@
       <version>4.1.7.RELEASE</version>
       <scope>test</scope>
     </dependency>
+    <!--AOP jdk1.7+ 用新版本-->
+    <dependency>
+      <groupId>org.aspectj</groupId>
+      <artifactId>aspectjrt</artifactId>
+      <version>1.8.6</version>
+    </dependency>
+    <dependency>
+      <groupId>org.aspectj</groupId>
+      <artifactId>aspectjweaver</artifactId>
+      <version>1.8.6</version>
+    </dependency>
+
+    <!--spring jdbc-->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-jdbc</artifactId>
+      <version>4.1.7.RELEASE</version>
+    </dependency>
   </dependencies>
   <build>
     <finalName>spring</finalName>

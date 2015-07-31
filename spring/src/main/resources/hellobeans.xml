@@ -26,9 +26,7 @@
     <bean class="com.xc.bean.InitHello"></bean>
 
 
-    <!--事件监听器-->
-    <bean id="cStartEventHandler" class="com.xc.event.CStartEventHandler"/>
-    <bean id="cStopEventHandler" class="com.xc.event.CStopEventHandler"/>
+
 
     <!--bean的继承与模板-->
     <bean id="helloWorld" class="com.xc.bean.HelloWorld">
